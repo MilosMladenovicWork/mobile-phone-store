@@ -196,7 +196,7 @@
 import React from 'react'
 import Layout from '../components/Layout'
 
-import HeroSection from '../components/HeroSection.js'
+import HeroSection from '../components/HeroSection/index.js'
 import AllPhoneSection from '../components/AllPhonesSection/AllPhonesSection'
 
 const IndexPage = () => {
