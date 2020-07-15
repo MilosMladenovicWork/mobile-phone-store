@@ -1,0 +1,17 @@
+.drop-down-list ul{
+  padding-left:20px;
+
+  list-style-type: none;
+}
+
+.drop-down-list-label{
+  display:flex;
+  flex-direction:row;
+  align-items:center;
+  justify-content:space-between;
+  margin-top:20px;
+}
+
+.drop-down-list ul:not(.drop-down-list) > li{
+  margin-top:10px;
+}

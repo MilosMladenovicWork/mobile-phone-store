@@ -7,24 +7,32 @@ import DropDownList from '../DropDownList'
 let AllPhoneSection = () => {
     return (
         <section className={styles.allPhonesSection}>
-            <DropDownList label='Filters'>
-                <DropDownList label='Brand'>
-                    <li>
-                        Huawei
-                    </li>
-                    <li>
-                        Sony
-                    </li>
+            <div className={styles.lBorderContainer}>
+                <DropDownList label='Filters' style={{
+                    paddingLeft:'0'
+                }}>
+                    <DropDownList label='Brand'>
+                        <ul>
+                            <li>
+                                Huawei
+                            </li>
+                            <li>
+                                Sony
+                            </li>
+                        </ul>
+                    </DropDownList>
+                    <DropDownList label='RAM'>
+                        <ul>
+                            <li>
+                                2GB
+                            </li>
+                            <li>
+                                3GB
+                            </li>
+                        </ul>
+                    </DropDownList>
                 </DropDownList>
-                <DropDownList label='RAM'>
-                    <li>
-                        2GB
-                    </li>
-                    <li>
-                        3GB
-                    </li>
-                </DropDownList>
-            </DropDownList>
+            </div>
 
             {/* <ul className={styles.filterList}>
                 <li>
