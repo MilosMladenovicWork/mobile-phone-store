@@ -6,10 +6,6 @@ import styles from './all-phones-section.module.scss'
 
 import DropDownList from '../DropDownList'
 
-import mobileImg from '../../img/mobile-sony.png'
-import mobileImg2 from '../../img/mobile-huawei.png'
-import mobileImg3 from '../../img/mobile-samsung.png'
-
 import notTickedItem from '../../img/not-ticked-item.svg'
 import tickedItem from '../../img/ticked-item.svg'
 import xButton from '../../img/x-button.svg'

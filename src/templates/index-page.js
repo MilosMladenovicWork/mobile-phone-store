@@ -194,20 +194,20 @@
 
 
 import React from 'react'
-import Layout from '../components/Layout'
 
+import Layout from '../components/Layout'
 import HeroSection from '../components/HeroSection/index.js'
 import AllPhoneSection from '../components/AllPhonesSection/AllPhonesSection'
 
 const IndexPage = () => {
 
   return (
-    <Layout>
-      <main>
-        <HeroSection />
-        <AllPhoneSection />
-      </main>
-    </Layout>
+      <Layout>
+        <main>
+          <HeroSection />
+          <AllPhoneSection />
+        </main>
+      </Layout>
   )
 }
 
