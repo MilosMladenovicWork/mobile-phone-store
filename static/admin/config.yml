@@ -17,9 +17,9 @@ collections:
     label: 'Phones'
     folder: 'src/pages/phones'
     create: true
+    identifier_field: name
     fields: 
       - {label: "Template Key", name: "templateKey", widget: "hidden", default: "phones"}
-      - {label: "Title", name: "title", widget: "string"}
       - {label: "Name", name: "name", widget: "string"}
       - {label: "Phone Image", name: "phoneImage", widget: image}
       - {label: "Brand", name: "brand", widget: "string"}
