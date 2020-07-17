@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
+import Img from 'gatsby-image'
 
 import styles from './all-phones-section.module.scss'
 
@@ -16,30 +17,31 @@ import xButton from '../../img/x-button.svg'
 
 let AllPhoneSection = () => {
 
-    // const phones = useStaticQuery(graphql`
+    const phonesQuery = useStaticQuery(graphql`
+    query MyQuery {
+        allMarkdownRemark(filter: {frontmatter: {templateKey: {eq: "phones"}}}) {
+            edges{
+                node{
+                    frontmatter {
+                      name
+                      brand
+                      RAM
+                      phoneImage{
+                        childImageSharp {
+                            fluid(maxWidth: 2000){
+                              ...GatsbyImageSharpFluid
+                            }
+                          }
+                      }
+                    }
+                }
+            }
+        }
+      }
+    `)
 
-    // `)
-
-    const phones = [
-        {
-            image:mobileImg,
-            name:'Sony Xperia Pro',
-            brand:'Sony',
-            RAM:'3GB'
-        },
-        {
-            image:mobileImg2,
-            name:'Huawei P30 Lite',
-            brand:'Huawei',
-            RAM:'2GB'
-        },
-        {
-            image:mobileImg3,
-            name:'Samsung Galaxy A50',
-            brand:'Samsung',
-            RAM:'6GB'
-        },
-    ]
+    let phones = phonesQuery.allMarkdownRemark.edges.map(phone => phone.node.frontmatter)
+    console.log(phones)
     
     const brands = []
     
@@ -136,8 +138,6 @@ let AllPhoneSection = () => {
         return activeFilters
     }
 
-    console.log(activeFilters())
-
     return (
         <section className={styles.allPhonesSection}>
             <div className={styles.lBorderContainer}>
@@ -189,7 +189,9 @@ let AllPhoneSection = () => {
                     if(index < numOfPhonesToShow){
                         return(
                             <figure key={index} className={styles.product}>
-                                <img src={phone.image} alt={`${phone.name} front`} />
+                                <div className={styles.productImage}>
+                                    <Img fluid={phone.phoneImage.childImageSharp.fluid} alt={`${phone.name} front`} />
+                                </div>
                                 <figcaption>{phone.name}</figcaption>
                             </figure>
                         )
