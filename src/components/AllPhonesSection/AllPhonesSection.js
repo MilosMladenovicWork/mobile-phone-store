@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react'
+import { graphql, useStaticQuery } from 'gatsby'
 
 import styles from './all-phones-section.module.scss'
 
@@ -12,47 +13,52 @@ import notTickedItem from '../../img/not-ticked-item.svg'
 import tickedItem from '../../img/ticked-item.svg'
 import xButton from '../../img/x-button.svg'
 
-const phones = [
-    {
-        image:mobileImg,
-        name:'Sony Xperia Pro',
-        brand:'Sony',
-        RAM:'3GB'
-    },
-    {
-        image:mobileImg2,
-        name:'Huawei P30 Lite',
-        brand:'Huawei',
-        RAM:'2GB'
-    },
-    {
-        image:mobileImg3,
-        name:'Samsung Galaxy A50',
-        brand:'Samsung',
-        RAM:'6GB'
-    },
-]
-
-const brands = []
-
-phones.forEach(phone => {
-    if(brands.indexOf(phone.brand) == -1){
-        brands.push(phone.brand)
-    }
-})
-
-const ram = []
-
-phones.forEach(phone => {
-    if(ram.indexOf(phone.RAM) == -1){
-        ram.push(phone.RAM)
-    }
-})
-
-ram.sort((a, b) => a.split('')[0] - b.split('')[0])
 
 let AllPhoneSection = () => {
 
+    // const phones = useStaticQuery(graphql`
+
+    // `)
+
+    const phones = [
+        {
+            image:mobileImg,
+            name:'Sony Xperia Pro',
+            brand:'Sony',
+            RAM:'3GB'
+        },
+        {
+            image:mobileImg2,
+            name:'Huawei P30 Lite',
+            brand:'Huawei',
+            RAM:'2GB'
+        },
+        {
+            image:mobileImg3,
+            name:'Samsung Galaxy A50',
+            brand:'Samsung',
+            RAM:'6GB'
+        },
+    ]
+    
+    const brands = []
+    
+    phones.forEach(phone => {
+        if(brands.indexOf(phone.brand) == -1){
+            brands.push(phone.brand)
+        }
+    })
+    
+    const ram = []
+    
+    phones.forEach(phone => {
+        if(ram.indexOf(phone.RAM) == -1){
+            ram.push(phone.RAM)
+        }
+    })
+    
+    ram.sort((a, b) => a.split('')[0] - b.split('')[0])
+    
     let [numOfPhonesToShow, setNumOfPhonesToShow] = useState(5)
     let [filters, setFilters] = useState([])
     let [phonesFiltered, setPhonesFiltered] = useState([])

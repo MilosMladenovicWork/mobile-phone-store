@@ -13,6 +13,17 @@ media_folder: static/img
 public_folder: /img
 
 collections:
+  - name: 'phones'
+    label: 'Phones'
+    folder: 'src/data/phones'
+    create: true
+    fields: 
+      - {label: "Template Key", name: "templateKey", widget: "hidden", default: "phones"}
+      - {label: "Name", name: "name", widget: "string"}
+      - {label: "Phone Image", name: "phoneImage", widget: image}
+      - {label: "Brand", name: "brand", widget: "string"}
+      - {label: "RAM", name: "RAM", widget: "string"}
+      
   - name: "blog"
     label: "Blog"
     folder: "src/pages/blog"
