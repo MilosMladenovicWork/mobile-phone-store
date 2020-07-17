@@ -26,29 +26,22 @@ const HeroSection = () => {
 
   return (
     <section className={styles.heroSection}>
-        <Parallax x={[0, -15]} className={styles.heroSectionIllustration}>
-        <div   >
+        <img />
+        <div className={styles.heroSectionHeadingBackground}></div>
+        <div  className={styles.heroSectionIllustration} >
         <img src={phoneIllustration} alt='phone illustration'/>
-
         <div className={styles.timeContainer}>
             <p>{hours}</p>
             <p style={{
-              opacity:secondsAreEven ? 1 : 0
+            opacity:secondsAreEven ? 1 : 0
             }}>:</p>
             <p>{minutes}</p>
         </div>
         <p className={styles.heroIllustrationText}>Scroll down to continue</p>
         </div>
-        </Parallax>
-        <Parallax x={[-2, 20]} className={styles.heroSectionSmallHeading}>
-          <h1 >Find, Compare, Buy.</h1>
-        </Parallax>
-        <Parallax x={[0, 10]} className={styles.heroSectionHeading}>
-          <h1 >It's so simple.</h1>
-        </Parallax>
-        <Parallax x={[-50, 25]}>
-          <div className={styles.heroSectionHeadingBackground}></div>
-        </Parallax>
+        <h1 className={styles.heroSectionSmallHeading}>Find, Compare, Buy.</h1>
+        
+          <h1 className={styles.heroSectionHeading}>It's so simple.</h1>
         <Parallax x={[25, -50]}>
           <div className={styles.heroSectionOverLayer}></div>
         </Parallax>
