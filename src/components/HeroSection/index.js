@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import {Parallax} from 'react-scroll-parallax'
 
 import styles from './hero-section.module.scss'
 
@@ -41,10 +40,8 @@ const HeroSection = () => {
         </div>
         <h1 className={styles.heroSectionSmallHeading}>Find, Compare, Buy.</h1>
         
-          <h1 className={styles.heroSectionHeading}>It's so simple.</h1>
-        <Parallax x={[25, -50]}>
-          <div className={styles.heroSectionOverLayer}></div>
-        </Parallax>
+        <h1 className={styles.heroSectionHeading}>It's so simple.</h1>
+        <div className={styles.heroSectionOverLayer}></div>
     </section>
   )
 }
