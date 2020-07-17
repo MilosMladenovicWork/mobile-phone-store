@@ -99,6 +99,7 @@
 
 import React, {useState} from 'react'
 import {Link} from 'gatsby'
+import {useSpring, animated} from 'react-spring'
 
 import logo from '../../img/logo.svg'
 import menuButton from '../../img/menu-button.svg'
@@ -107,24 +108,30 @@ import closeButton from '../../img/x-button.svg'
 import styles from './navbar.module.scss'
 
 const Navbar = () => {
-
   let [menuClicked, setMenuClicked] = useState(false)
-  console.log(menuClicked)
+
+  const {rxy} = useSpring({
+    rxy: menuClicked ? [0, -110, 40]: [-45, 0, 0],
+    config:{duration:200}
+  })
+
   return(
     <nav className={styles.navbar}>
       <div className={styles.lPaddingBox}>
-        <Link className={styles.navbarLogo}>
+        <Link to='/' className={styles.navbarLogo}>
           <img src={logo} alt='logo'/>
         </Link>
         <div className={styles.navbarLogoBackground}>
         </div>
-        <div className={`${styles.navbarMenuButtonBackground} ${menuClicked ? styles.menuIsClicked : ''}`}>
+        <animated.div style={{
+          transform: rxy.interpolate((r, x, y) => `rotate(${r}deg) translate(${x}vw, ${y}vh)`)
+        }} className={`${styles.navbarMenuButtonBackground}`}>
           <ul className={styles.navbarLinks}>
             <li>On Sale</li>
             <li>Most Popular</li>
             <li>Best Deal</li>
           </ul>
-        </div>
+        </animated.div>
         <img 
           className={styles.navbarMenuButton}
           src={menuClicked ? closeButton : menuButton} 
