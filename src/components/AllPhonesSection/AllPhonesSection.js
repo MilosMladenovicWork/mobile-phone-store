@@ -10,6 +10,7 @@ import mobileImg3 from '../../img/mobile-samsung.png'
 
 import notTickedItem from '../../img/not-ticked-item.svg'
 import tickedItem from '../../img/ticked-item.svg'
+import xButton from '../../img/x-button.svg'
 
 const phones = [
     {
@@ -70,8 +71,6 @@ let AllPhoneSection = () => {
     }, [filters])
 
     useEffect(() => {
-        console.log(filters)
-        console.log(filters.map(filter => filter.value.length === 0).indexOf(false))
         if(phonesFiltered.length === 0 && filters.map(filter => filter.value.length === 0).every(boolean => boolean == true)){
             setPhonesFiltered(phones)
         }
@@ -121,6 +120,18 @@ let AllPhoneSection = () => {
         }
     }
 
+    let activeFilters = () => {
+        let activeFilters = []
+        filters.forEach(filterGroup => {
+            filterGroup.value.forEach(filter => {
+                activeFilters.push({filterGroup:filterGroup.filter, filter})
+            })
+        })
+        return activeFilters
+    }
+
+    console.log(activeFilters())
+
     return (
         <section className={styles.allPhonesSection}>
             <div className={styles.lBorderContainer}>
@@ -152,6 +163,20 @@ let AllPhoneSection = () => {
                         </ul>
                     </DropDownList>
                 </DropDownList>
+            </div>
+            <div className={styles.activeFilters}>
+                {activeFilters().map((activeFilter, index) => {
+                    return <div 
+                        className={styles.filterTag} 
+                        key={index}
+                        onClick={() => toggleFilter(activeFilter.filterGroup, activeFilter.filter)}
+                    >
+                                <p>
+                                    {activeFilter.filterGroup}: {activeFilter.filter}
+                                </p>
+                                <img className={styles.filterTagButton} src={xButton} alt='remove filter' />
+                           </div>
+                })}
             </div>
             <div className={styles.productResults}>
                 {phonesFiltered.map((phone, index) => {
