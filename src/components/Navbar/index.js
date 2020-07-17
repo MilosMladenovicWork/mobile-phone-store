@@ -102,6 +102,7 @@ import {Link} from 'gatsby'
 
 import logo from '../../img/logo.svg'
 import menuButton from '../../img/menu-button.svg'
+import closeButton from '../../img/x-button.svg'
 
 import styles from './navbar.module.scss'
 
@@ -126,7 +127,7 @@ const Navbar = () => {
         </div>
         <img 
           className={styles.navbarMenuButton}
-          src={menuButton} 
+          src={menuClicked ? closeButton : menuButton} 
           alt='menu button'
           onClick={() => setMenuClicked((prevState) => !prevState)}
         />
