@@ -6,3 +6,36 @@
     border:1px solid #2E8CCA;
     padding:0 10px;
 }
+
+.product{
+    margin:70px 0 0;
+    display:flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.product > img{
+    width:90vw;
+}
+
+.filter-item{
+    display:flex;
+    align-items:center;
+}
+
+.filter-item > img{
+    margin-right:10px;
+}
+
+.see-more-button{
+    display:block;
+    margin:auto;
+    margin-top:100px;
+    padding:20px 40px;
+
+    background-color:#2E8CCA;
+    
+    border:none;
+    border-radius:10px;
+    color:white;
+}

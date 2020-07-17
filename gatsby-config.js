@@ -56,6 +56,16 @@ module.exports = {
               destinationDir: 'static',
             },
           },
+          {
+            resolve:`gatsby-plugin-google-fonts`,
+            options:{
+              fonts: [
+                `Dosis`,
+                `source sans pro\:300,400,400i,700` // you can also specify font weights and styles
+              ],
+              display: 'swap'
+            }
+          }
         ],
       },
     },
