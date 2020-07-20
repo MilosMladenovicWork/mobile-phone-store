@@ -1,5 +1,5 @@
 ---
-templateKey: phones
+templateKey: phone-page
 name: Huawei P9 Lite
 phoneImage: /img/download-2.png
 brand: Huawei

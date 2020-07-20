@@ -6,7 +6,7 @@ import Layout from '../components/Layout'
 import styles from './phone-page.module.scss'
 
 let PhonePage = ({data}) => {
-    console.log(data.markdownRemark.frontmatter.phoneImage)
+    
     return (
     <Layout>
         <section className={styles.phonePageSection}>

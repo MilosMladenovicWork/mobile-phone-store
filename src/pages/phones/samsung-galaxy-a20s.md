@@ -1,5 +1,5 @@
 ---
-templateKey: phones
+templateKey: phone-page
 name: Samsung Galaxy A20s
 phoneImage: /img/download-3-.png
 brand: Samsung

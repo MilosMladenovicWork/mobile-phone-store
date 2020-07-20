@@ -15,7 +15,7 @@ let AllPhoneSection = () => {
 
     const phonesQuery = useStaticQuery(graphql`
     query MyQuery {
-        allMarkdownRemark(filter: {frontmatter: {templateKey: {eq: "phones"}}}) {
+        allMarkdownRemark(filter: {frontmatter: {templateKey: {eq: "phone-page"}}}) {
             edges{
                 node{
                     fields{
@@ -135,8 +135,6 @@ let AllPhoneSection = () => {
         })
         return activeFilters
     }
-
-    console.log(phonesFiltered)
 
     return (
         <section className={styles.allPhonesSection}>
